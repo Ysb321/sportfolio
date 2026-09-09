@@ -3,17 +3,18 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Marquee from './components/Marquee'
 import About from './components/About'
-import Expertise from './components/Expertise'
-import Skills from './components/Skills'
 import Experience from './components/Experience'
+import Skills from './components/Skills'
+import Expertise from './components/Expertise'
 import Projects from './components/Projects'
+import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { ProgressBar, ToTop } from './components/Chrome'
 import { useRevealObserver } from './hooks/hooks'
 import { useTheme } from './hooks/useTheme'
 
-const SECTION_IDS = ['about', 'expertise', 'skills', 'experience', 'projects', 'contact']
+const SECTION_IDS = ['about', 'experience', 'skills', 'expertise', 'projects', 'education', 'contact']
 
 export default function App() {
   useRevealObserver()
@@ -33,10 +34,11 @@ export default function App() {
         <Hero />
         <Marquee />
         <About />
-        <Expertise />
-        <Skills />
         <Experience />
+        <Skills />
+        <Expertise />
         <Projects />
+        <Education />
         <Contact />
       </main>
       <Footer theme={theme} setTheme={setTheme} auto={auto} setAuto={setAuto} />

@@ -81,7 +81,7 @@ export const about = {
 }
 
 export const expertise = {
-  kicker: '02 — Core expertise',
+  kicker: '04 — Core expertise',
   title: ['Where I create', 'the most value.'],
   cards: [
     {
@@ -269,7 +269,7 @@ export const skills = {
 }
 
 export const experience = {
-  kicker: '04 — Experience',
+  kicker: '02 — Experience',
   title: ['A timeline of', 'shipped impact.'],
   items: [
     {
