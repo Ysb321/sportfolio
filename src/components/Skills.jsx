@@ -1,5 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import { skills } from '../data/content'
+import { IconDoc, IconLayers, IconChart, IconFlow, IconZap, IconUsers } from './Icons'
+
+const tabIcons = {
+  ba: <IconDoc width={14} height={14} />,
+  agile: <IconLayers width={14} height={14} />,
+  data: <IconChart width={14} height={14} />,
+  docs: <IconFlow width={14} height={14} />,
+  tools: <IconZap width={14} height={14} />,
+  soft: <IconUsers width={14} height={14} />
+}
 
 function Panel({ tab, active }) {
   const ref = useRef(null)
@@ -71,11 +81,13 @@ export default function Skills() {
           {skills.tabs.map((t) => (
             <button
               key={t.id}
+              type="button"
               className={`skills__tab ${activeTab === t.id ? 'is-active' : ''}`}
               role="tab"
               aria-selected={activeTab === t.id}
               onClick={() => setActiveTab(t.id)}
             >
+              <span className="skills__tab-icon" aria-hidden="true">{tabIcons[t.id]}</span>
               {t.label}
             </button>
           ))}

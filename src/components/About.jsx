@@ -1,5 +1,13 @@
-import { about, profile } from '../data/content'
+import { about } from '../data/content'
 import { useCountUp } from '../hooks/hooks'
+import { IconUsers, IconFlow, IconTarget, IconDoc } from './Icons'
+
+const principleIcons = [
+  <IconUsers key="u" width={14} height={14} />,
+  <IconFlow key="f" width={14} height={14} />,
+  <IconTarget key="t" width={14} height={14} />,
+  <IconDoc key="d" width={14} height={14} />
+]
 
 function Fact({ fact }) {
   const [ref, value] = useCountUp(fact.value)
@@ -27,19 +35,16 @@ export default function About() {
             <p className="dropcap">{about.paragraphs[0]}</p>
             <p>{about.paragraphs[1]}</p>
             <p>{about.paragraphs[2]}</p>
-            <a href={profile.resume} download="Sheetal_Kirjawalekar_Resume.pdf" className="btn btn--outline magnetic" data-reveal style={{ '--d': 2 }}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              One-page résumé
-            </a>
           </div>
 
           <div className="about__cards">
             <div className="about__principles" data-reveal style={{ '--d': 2 }}>
               <h3>How I work</h3>
               <ul>
-                {about.principles.map((p) => (
+                {about.principles.map((p, i) => (
                   <li key={p.n}>
-                    <span>{p.n}</span>
+                    <span className="about__prin-icon" aria-hidden="true">{principleIcons[i % principleIcons.length]}</span>
+                    <span className="about__prin-num">{p.n}</span>
                     <div>
                       <strong>{p.title}</strong>
                       <small>{p.text}</small>

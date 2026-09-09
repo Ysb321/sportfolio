@@ -18,7 +18,9 @@ export const profile = {
   availability: 'Immediate Joiner',
   dob: '07 Nov 1992',
   resume: './assets/Sheetal_Kirjawalekar_Resume.pdf',
-  photo: './assets/img/profile.jpg'
+  photo: './assets/img/profile.webp',
+  photoFallback: './assets/img/profile.jpg',
+  photoSrcSet: './assets/img/profile.webp 640w, ./assets/img/profile@2x.webp 800w'
 }
 
 export const hero = {

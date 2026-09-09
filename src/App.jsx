@@ -10,23 +10,25 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { ProgressBar, ToTop } from './components/Chrome'
-import { useRevealObserver, useMagnetic } from './hooks/hooks'
+import { useRevealObserver } from './hooks/hooks'
+import { useTheme } from './hooks/useTheme'
 
 const SECTION_IDS = ['about', 'expertise', 'skills', 'experience', 'projects', 'contact']
 
 export default function App() {
   useRevealObserver()
-  useMagnetic()
+  const { theme, setTheme, auto, setAuto } = useTheme({ autoInterval: 3800 })
 
   useEffect(() => {
-    document.getElementById('year')?.replaceChildren(document.createTextNode(new Date().getFullYear()))
+    const y = document.getElementById('year')
+    if (y) y.textContent = new Date().getFullYear()
   }, [])
 
   return (
     <>
       <div className="grain" aria-hidden="true" />
       <ProgressBar />
-      <Nav sections={SECTION_IDS} />
+      <Nav sections={SECTION_IDS} theme={theme} setTheme={setTheme} auto={auto} setAuto={setAuto} />
       <main>
         <Hero />
         <Marquee />
@@ -37,7 +39,7 @@ export default function App() {
         <Projects />
         <Contact />
       </main>
-      <Footer />
+      <Footer theme={theme} setTheme={setTheme} auto={auto} setAuto={setAuto} />
       <ToTop />
     </>
   )

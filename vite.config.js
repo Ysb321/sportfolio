@@ -11,6 +11,19 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    chunkSizeWarningLimit: 900
+    target: 'esnext',
+    minify: 'esbuild',
+    cssMinify: true,
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom']
+        }
+      }
+    }
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom']
   }
 })
