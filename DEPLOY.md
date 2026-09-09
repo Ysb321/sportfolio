@@ -1,51 +1,28 @@
 # Deploy to Cloudflare Pages
 
-Two ways — pick one.
+This project is **already deployed** — the production branch is
+`arena/01a08741-sportfolio` (not `main`). Every push to that branch
+auto-deploys to Cloudflare Pages.
 
 ---
 
-## Option A · Git integration (recommended — auto-deploys on every push)
+## How deploys work now
 
-1. **Merge the PR** (or skip this and use the arena branch directly):
-   Open https://github.com/Ysb321/sportfolio/pull/1 → click **Merge pull request**.
+- **Push to `arena/01a08741-sportfolio`** → automatic production deploy.
+- **`main` is not connected** — nothing deploys from it.
+- Caching & security headers: `public/_headers`. Node version: `.nvmrc` (22).
 
-2. Go to **https://dash.cloudflare.com** → **Workers & Pages** → **Create** → **Pages** tab → **Connect to Git**.
+## If you ever need to reconnect or redeploy manually
 
-3. **Authorize GitHub** and select the repository **`Ysb321/sportfolio`**.
-
-4. Set up the build:
+1. Go to **https://dash.cloudflare.com** → **Workers & Pages** → your project → **Settings → Builds & deployments**.
+2. The connected settings should be:
    | Setting | Value |
    |---|---|
-   | Project name | `sheetal-portfolio` (or anything you like — becomes `yourname.pages.dev`) |
-   | Production branch | `main` |
-   | Framework preset | **None** (or Vite — either works) |
+   | Production branch | `arena/01a08741-sportfolio` |
    | Build command | `npm run build` |
    | Build output directory | `dist` |
-
-5. Click **Save and Deploy**. First build takes ~1 minute.
-
-6. Done — your site is live at `https://<project-name>.pages.dev`.
-   Every future `git push` to `main` redeploys automatically. PRs get preview URLs.
-
-> Node version is already pinned to 22 via `.nvmrc`, and caching/security headers
-> are configured in `public/_headers`. Nothing else to set.
-
----
-
-## Option B · Direct upload (no Git connection)
-
-Requires Node 18+ installed locally:
-
-```bash
-git clone https://github.com/Ysb321/sportfolio.git
-cd sportfolio
-npm install
-npm run build
-npx wrangler login            # opens browser → Approve
-npx wrangler pages deploy dist --project-name sheetal-portfolio
-```
-
-Wrangler prints the live URL when it finishes.
+3. **Retry deploy**: project → **Deployments** → latest → **⋯ → Retry deployment**.
+   Or push any commit to the production branch.
 
 ---
 
