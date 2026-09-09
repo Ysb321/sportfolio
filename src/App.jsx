@@ -14,7 +14,7 @@ import { ProgressBar, ToTop } from './components/Chrome'
 import { useRevealObserver } from './hooks/hooks'
 import { useTheme } from './hooks/useTheme'
 
-const SECTION_IDS = ['about', 'experience', 'skills', 'expertise', 'projects', 'education', 'contact']
+const SECTION_IDS = ['about', 'experience', 'skills', 'projects', 'education', 'expertise', 'contact']
 
 export default function App() {
   useRevealObserver()
@@ -36,9 +36,9 @@ export default function App() {
         <About />
         <Experience />
         <Skills />
-        <Expertise />
         <Projects />
         <Education />
+        <Expertise />
         <Contact />
       </main>
       <Footer theme={theme} setTheme={setTheme} auto={auto} setAuto={setAuto} />

@@ -81,7 +81,7 @@ export const about = {
 }
 
 export const expertise = {
-  kicker: '04 — Core expertise',
+  kicker: '06 — Core expertise',
   title: ['Where I create', 'the most value.'],
   cards: [
     {
@@ -307,7 +307,7 @@ export const experience = {
 }
 
 export const projects = {
-  kicker: '05 — Selected work',
+  kicker: '04 — Selected work',
   title: ['Cases, not just', 'job titles.'],
   sub: 'Four platforms where the requirements were mine — from first interview to final UAT sign-off. Click any card for the full story.',
   items: [
@@ -399,7 +399,7 @@ export const projects = {
 }
 
 export const education = {
-  kicker: '06 — Foundations',
+  kicker: '05 — Foundations',
   degree: 'B.Sc. in Mass Communication & Journalism',
   period: '2012 — 2016',
   note: 'Years of training in research, interviewing and storytelling — the same skills I now use to elicit requirements, facilitate workshops and write documents people actually read.',
