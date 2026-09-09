@@ -155,6 +155,10 @@ export default function Nav({ sections, theme, setTheme, auto, setAuto }) {
             Let’s talk
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
+          <a href={profile.resume} download="Sheetal_Kirjawalekar_Resume.pdf" className="btn btn--ghost btn--full" onClick={close}>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3v13"/><path d="M7 10l5 5 5-5"/><path d="M3 17v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/></svg>
+            Download Resume
+          </a>
           <div className="nav__drawer-meta">
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
             <span>·</span>

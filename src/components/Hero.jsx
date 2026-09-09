@@ -1,6 +1,6 @@
 import { profile, hero } from '../data/content'
 import { useRotator, useCountUp } from '../hooks/hooks'
-import { IconSpark, IconZap, IconLayers, IconTarget, IconDoc } from './Icons'
+import { IconSpark, IconZap, IconLayers, IconTarget, IconDoc, IconDownload } from './Icons'
 
 const statIcons = [
   <IconZap key="zap" width={14} height={14} />,
@@ -68,7 +68,11 @@ export default function Hero() {
               Explore my work
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-            <a href="#contact" className="btn btn--ghost">
+            <a href={profile.resume} download="Sheetal_Kirjawalekar_Resume.pdf" className="btn btn--ghost">
+              <IconDownload width={16} height={16} aria-hidden="true" />
+              Download Resume
+            </a>
+            <a href="#contact" className="btn btn--outline">
               <IconSpark width={14} height={14} aria-hidden="true" />
               Get in touch
             </a>

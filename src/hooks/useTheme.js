@@ -2,7 +2,6 @@ import { useEffect, useState, useCallback, useRef } from 'react'
 
 export const THEMES = {
   ink: { label: 'Ink', hint: 'Deep navy', icon: '●', colors: ['#d9b062', '#0a0f1e'] },
-  light: { label: 'Light', hint: 'Ivory paper', icon: '○', colors: ['#a9812f', '#faf8f2'] },
   ocean: { label: 'Ocean', hint: 'Teal night', icon: '◐', colors: ['#4ecdc4', '#071a26'] },
   ember: { label: 'Ember', hint: 'Warm dusk', icon: '◎', colors: ['#e8a87c', '#1a0f14'] },
   forest: { label: 'Forest', hint: 'Sage dark', icon: '◑', colors: ['#7bc8a4', '#0f1a15'] }
@@ -16,8 +15,9 @@ function getInitial() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY)
     if (saved && VALID.has(saved)) return saved
+    // migrate old 'light' -> ink
+    if (saved === 'light') return 'ink'
   } catch {}
-  if (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light'
   return 'ink'
 }
 
@@ -35,6 +35,8 @@ export function useTheme({ autoInterval = 3800 } = {}) {
     if (typeof document !== 'undefined') {
       const attr = document.documentElement.getAttribute('data-theme')
       if (attr && VALID.has(attr)) return attr
+      // migrate light attr
+      if (attr === 'light') return 'ink'
     }
     return getInitial()
   })
@@ -42,23 +44,28 @@ export function useTheme({ autoInterval = 3800 } = {}) {
   const autoRef = useRef(auto)
   autoRef.current = auto
 
-  // apply theme to DOM + storage
+  // apply theme to DOM + storage + auto flag for shading
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    try { localStorage.setItem(STORAGE_KEY, theme) } catch {}
+    const root = document.documentElement
+    // handle migration from light
+    const finalTheme = VALID.has(theme) ? theme : 'ink'
+    root.setAttribute('data-theme', finalTheme)
+    root.setAttribute('data-auto', auto ? '1' : '0')
+    try { localStorage.setItem(STORAGE_KEY, finalTheme) } catch {}
     const meta = document.querySelector('meta[name="theme-color"]')
     if (meta) {
-      const colors = { ink: '#0a0f1e', light: '#faf8f2', ocean: '#071a26', ember: '#1a0f14', forest: '#0f1a15' }
-      meta.content = colors[theme] || colors.ink
+      const colors = { ink: '#0a0f1e', ocean: '#071a26', ember: '#1a0f14', forest: '#0f1a15' }
+      meta.content = colors[finalTheme] || colors.ink
     }
-  }, [theme])
+  }, [theme, auto])
 
-  // persist auto
+  // persist auto + reflect to DOM immediately
   useEffect(() => {
     try { localStorage.setItem(AUTO_KEY, auto ? '1' : '0') } catch {}
+    try { document.documentElement.setAttribute('data-auto', auto ? '1' : '0') } catch {}
   }, [auto])
 
-  // auto cycle
+  // auto cycle — shading-wise beautiful: smooth CSS transition handles visual, JS just cycles
   useEffect(() => {
     if (!auto) return
     let paused = false
@@ -70,7 +77,8 @@ export function useTheme({ autoInterval = 3800 } = {}) {
       if (paused || document.hidden) return
       setTheme(prev => {
         const keys = Object.keys(THEMES)
-        const idx = keys.indexOf(prev)
+        const curr = VALID.has(prev) ? prev : 'ink'
+        const idx = keys.indexOf(curr)
         return keys[(idx + 1) % keys.length]
       })
     }, autoInterval)
@@ -82,14 +90,14 @@ export function useTheme({ autoInterval = 3800 } = {}) {
 
   const cycle = useCallback(() => {
     const keys = Object.keys(THEMES)
-    const idx = keys.indexOf(theme)
+    const curr = VALID.has(theme) ? theme : 'ink'
+    const idx = keys.indexOf(curr)
     setTheme(keys[(idx + 1) % keys.length])
   }, [theme])
 
-  // when user manually picks, keep auto but allow; if they want to pause, they toggle off
   const setThemeManual = useCallback((t) => {
-    setTheme(t)
+    if (VALID.has(t)) setTheme(t)
   }, [])
 
-  return { theme, setTheme: setThemeManual, auto, setAuto, cycle }
+  return { theme: VALID.has(theme) ? theme : 'ink', setTheme: setThemeManual, auto, setAuto, cycle }
 }

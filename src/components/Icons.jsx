@@ -65,3 +65,8 @@ export const IconTrending = (p) => (
     <path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/>
   </svg>
 )
+export const IconDownload = (p) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M12 3v13"/><path d="M7 10l5 5 5-5"/><path d="M3 17v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/>
+  </svg>
+)

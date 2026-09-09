@@ -1,5 +1,5 @@
 import { contact, profile } from '../data/content'
-import { IconMail, IconPhone, IconMap } from './Icons'
+import { IconMail, IconPhone, IconMap, IconDownload } from './Icons'
 
 export default function Contact() {
   return (
@@ -47,6 +47,10 @@ export default function Contact() {
             <a href={`mailto:${profile.email}`} className="btn btn--gold btn--full" style={{ marginTop: 8 }}>
               <IconMail width={18} height={18} aria-hidden="true" />
               Send me an email
+            </a>
+            <a href={profile.resume} download="Sheetal_Kirjawalekar_Resume.pdf" className="btn btn--ghost btn--full">
+              <IconDownload width={18} height={18} aria-hidden="true" />
+              Download Resume
             </a>
           </div>
         </div>
