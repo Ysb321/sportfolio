@@ -1,0 +1,18 @@
+# Hashed build assets — cache forever
+/assets/*:
+  Cache-Control: public, max-age=31536000, immutable
+
+# Replaceable files — short cache
+/assets/img/*:
+  Cache-Control: public, max-age=14400
+
+/assets/Sheetal_Kirjawalekar_Resume.pdf:
+  Cache-Control: public, max-age=14400
+
+# Always serve fresh HTML
+/:
+  Cache-Control: no-cache
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
