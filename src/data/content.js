@@ -114,100 +114,146 @@ export const expertise = {
 export const skills = {
   kicker: '03 — Capabilities',
   title: ['A full-stack', "analyst's arsenal."],
-  sub: 'Every capability below has been exercised on live projects — select a category to explore the depth.',
+  sub: 'Every capability below has been exercised on live projects — click any skill, tool or tag for a detailed view with methodology, artifacts & project impact.',
   tabs: [
     {
       id: 'ba',
       label: 'Business Analysis',
+      intro: 'From stakeholder whisper to developer-ready spec — structured elicitation, crisp documentation and 100% traceability.',
       bars: [
-        { name: 'Requirement Gathering & Analysis', level: 95 },
-        { name: 'BRD / FRD / FSD / SRS Documentation', level: 93 },
-        { name: 'Gap, Impact & Root-Cause Analysis', level: 90 },
-        { name: 'User Stories & Acceptance Criteria', level: 92 },
-        { name: 'Requirement Traceability (RTM)', level: 88 }
+        { name: 'Requirement Gathering & Analysis', level: 95, desc: 'Lead elicitation via interviews, workshops, observation & surveys across 4 domains. Map As-Is → To-Be with pain-point mapping and trace every need to delivery.', artifacts: ['Elicitation Plan', 'Stakeholder Map', 'As-Is/To-Be Canvas', 'RTM'], usedIn: ['Bureau Chief', 'Manufacturing ERP', 'Healthcare Plus'], methodology: 'Workshops → Interviews → Observation → Gap/RCA → MoSCoW' },
+        { name: 'BRD / FRD / FSD / SRS Documentation', level: 93, desc: 'Author audit-ready BRD, FRD/FSD and SRS with clear functional & NFRs, AC and flows that dev, QA and compliance can all act on.', artifacts: ['BRD', 'FRD/FSD', 'SRS', 'User Stories + AC'], usedIn: ['Healthcare Plus', 'Pair My Trip', 'Bureau Chief'], methodology: 'Template-driven + RTM + walkthroughs' },
+        { name: 'Gap, Impact & Root-Cause Analysis', level: 90, desc: 'Quantify gaps, assess change impact (scope, cost, risk) and run RCA (5-Whys/Fishbone) to fix the system, not the symptom.', artifacts: ['Gap Register', 'Impact Log', 'RCA Report'], usedIn: ['Manufacturing ERP', 'Bureau Chief'], methodology: '5 Whys · Fishbone · Impact Matrix' },
+        { name: 'User Stories & Acceptance Criteria', level: 92, desc: 'INVEST-ready stories with GIVEN-WHEN-THEN AC, edge cases and NFRs — grooming-ready for JIRA and test-ready for QA.', artifacts: ['Epics → Stories', 'AC (Gherkin)', 'DoR/DoD'], usedIn: ['Pair My Trip', 'Healthcare Plus'], methodology: 'INVEST · Gherkin · Example Mapping' },
+        { name: 'Requirement Traceability (RTM)', level: 88, desc: 'Living RTM from elicitation → design → build → test → UAT — nothing built that wasn’t asked, nothing asked that wasn’t built.', artifacts: ['RTM', 'Coverage Matrix', 'UAT Trace'], usedIn: ['All 4 platforms'], methodology: 'Forward/Backward Trace · JIRA links · UAT sign-off' }
       ],
       pills: [
         'Requirement Elicitation', 'Interviews', 'Workshops', 'Surveys', 'Brainstorming',
         'Functional & Non-Functional Specs', 'Use Cases', 'Workflows', 'Gap Analysis',
         'Impact Analysis', 'Root Cause Analysis', 'Change Management', 'Solution Evaluation', 'Backlog Refinement'
-      ]
+      ],
+      pillDetails: {
+        'Requirement Elicitation': '50+ facilitated sessions — open-ended and scenario-based techniques to surface explicit and latent needs.',
+        'Interviews': 'Structured & semi-structured interviews with execs, SMEs and end-users, synthesized into themes.',
+        'Workshops': 'Time-boxed, outcome-driven workshops with live modelling, dot-voting and alignment.',
+        'Use Cases': 'UML use-case narratives with actors, pre/post-conditions and alternate flows for dev & QA.',
+        'Change Management': 'Impact-assessed CRs, stakeholder comms and training plans to land change smoothly.',
+        'Gap Analysis': 'As-Is vs To-Be deltas quantified by process, data, system and people impact.',
+        'Root Cause Analysis': '5 Whys & Fishbone to address systemic causes, not symptoms.',
+        'Backlog Refinement': 'Continuous grooming for INVEST readiness, estimation and dependency mapping.'
+      }
     },
     {
       id: 'agile',
       label: 'Agile & Delivery',
+      intro: 'Backlog ownership to release tracking — Scrum done right with transparency and predictable velocity.',
       bars: [
-        { name: 'Scrum Ceremonies & Sprint Execution', level: 90 },
-        { name: 'Product Backlog Management (JIRA)', level: 90 },
-        { name: 'Story Point Estimation', level: 85 },
-        { name: 'Effort, Timeline & Cost Estimation', level: 82 },
-        { name: 'Release Planning & Tracking', level: 82 }
+        { name: 'Scrum Ceremonies & Sprint Execution', level: 90, desc: 'Facilitate planning, stand-ups, reviews and retros — keeping teams aligned and removing blockers fast.', artifacts: ['Sprint Goal', 'Burndown', 'Retro Actions'], usedIn: ['Healthcare Plus', 'Pair My Trip', 'Manufacturing ERP'], methodology: 'Scrum Guide · Timeboxing · Visual Boards' },
+        { name: 'Product Backlog Management (JIRA)', level: 90, desc: 'Own the JIRA backlog: epics → stories, refinement, pointing, prioritisation and sprint readiness.', artifacts: ['Backlog', 'JIRA Board', 'Release Plan'], usedIn: ['All platforms'], methodology: 'MoSCoW · WSJF · Story Splitting' },
+        { name: 'Story Point Estimation', level: 85, desc: 'Lead planning poker, establish velocity baselines and calibrate for predictable delivery.', artifacts: ['Estimation Sheets', 'Velocity Charts'], usedIn: ['Pair My Trip', 'Manufacturing ERP'], methodology: 'Planning Poker · Velocity Tracking' },
+        { name: 'Effort, Timeline & Cost Estimation', level: 82, desc: 'Three-point estimates with assumptions, risks and confidence ranges for realistic planning.', artifacts: ['Estimate Model', 'Risk Buffer', 'Milestones'], usedIn: ['Bureau Chief', 'Healthcare Plus'], methodology: 'PERT · Analogous · Parametric' },
+        { name: 'Release Planning & Tracking', level: 82, desc: 'Roadmaps, release trains and KPI dashboards — scope, dates and quality visible at a glance.', artifacts: ['Release Roadmap', 'KPI Dashboard', 'Go/No-Go'], usedIn: ['Manufacturing ERP'], methodology: 'Burn-up · Milestone Tracking · Governance' }
       ],
       pills: [
         'Sprint Planning', 'Daily Stand-ups', 'Sprint Review', 'Retrospectives',
         'Backlog Grooming', 'Epic Creation', 'Sprint Tracking', 'Risk Identification',
         'Issue Tracking', 'Change Requests', 'KPI Monitoring', 'Continuous Improvement'
-      ]
+      ],
+      pillDetails: {
+        'Sprint Planning': 'Capacity-aware planning with slicing and dependency mapping.',
+        'Retrospectives': 'Blameless retros turning feedback into 1–2 actionable experiments each sprint.',
+        'Risk Identification': 'RAID logs with probability/impact and mitigation owners.',
+        'KPI Monitoring': 'Lead time, velocity and defect trends tracked and acted on.',
+        'Continuous Improvement': 'Kaizen mindset — small, measurable improvements each cycle.'
+      }
     },
     {
       id: 'data',
       label: 'Data & Analytics',
+      intro: 'Data that answers real questions — validated, reconciled and visualised for decisions, not just dashboards.',
       bars: [
-        { name: 'MS Excel — Pivot Tables, VLOOKUP', level: 92 },
-        { name: 'Data Extraction & Validation', level: 88 },
-        { name: 'SQL — Querying & Reconciliation', level: 82 },
-        { name: 'Power BI', level: 80 },
-        { name: 'Tableau', level: 78 }
+        { name: 'MS Excel — Pivot Tables, VLOOKUP', level: 92, desc: 'Advanced Excel for pivots, XLOOKUP/VLOOKUP, Power Query, conditional logic and audit-ready reconciliations.', artifacts: ['Reconciliation Sheets', 'KPI Trackers', 'Pivot Dashboards'], usedIn: ['Bureau Chief', 'Manufacturing ERP'], methodology: 'Reconciliation · Cleansing · Validation Rules' },
+        { name: 'Data Extraction & Validation', level: 88, desc: 'Extract, profile and validate datasets for completeness, accuracy and compliance.', artifacts: ['Data Profile', 'Validation Report'], usedIn: ['Bureau Chief', 'Healthcare Plus'], methodology: 'Profiling · Sampling · Cross-system Checks' },
+        { name: 'SQL — Querying & Reconciliation', level: 82, desc: 'SQL for extraction, joins, aggregations and reconciliations across MySQL stacks.', artifacts: ['SQL Scripts', 'Reconciliation Queries'], usedIn: ['Bureau Chief', 'Pair My Trip'], methodology: 'Joins · Grouping · Reconciliation Queries' },
+        { name: 'Power BI', level: 80, desc: 'Power BI datasets, DAX measures and interactive reports with RLS and scheduled refresh.', artifacts: ['PBIX Model', 'DAX Measures', 'Dashboards'], usedIn: ['Manufacturing ERP', 'Healthcare Plus'], methodology: 'Star Schema · DAX · RLS' },
+        { name: 'Tableau', level: 78, desc: 'Tableau stories with parameters, LODs and responsive layouts for exec and ops.', artifacts: ['TWBX', 'L.O.D. Calcs', 'Stories'], usedIn: ['Bureau Chief'], methodology: 'LOD · Parameters · Storytelling' }
       ],
       pills: [
         'Data Validation', 'Data Reconciliation', 'KPI Tracking', 'Reporting',
         'Business Decision Support', 'Data Accuracy', 'Audit Readiness', 'MySQL'
-      ]
+      ],
+      pillDetails: {
+        'Data Reconciliation': 'Two-way reconciliations with break reports and RCA categorisation.',
+        'KPI Tracking': 'KPI trees linking operational metrics to outcomes with thresholds.',
+        'Audit Readiness': 'Lineage, controls and evidence packs for compliance and audit.',
+        'MySQL': 'Querying transactional stores for extraction and validation.'
+      }
     },
     {
       id: 'docs',
       label: 'Modelling & Docs',
+      intro: 'A diagram ends a debate a paragraph never could — legible models and docs people actually use.',
       bars: [
-        { name: 'UML — Use Case, Activity, Sequence, Class', level: 92 },
-        { name: 'BPMN & Process Flow Diagrams', level: 90 },
-        { name: 'Wireframing — Figma, Balsamiq, Draw.io', level: 88 },
-        { name: 'Visio Diagrams', level: 85 },
-        { name: 'SOPs, User Manuals & Knowledge Base', level: 90 }
+        { name: 'UML — Use Case, Activity, Sequence, Class', level: 92, desc: 'Model behaviour and structure with UML — from actor goals to message flows and domain classes.', artifacts: ['Use Case', 'Activity', 'Sequence', 'Class'], usedIn: ['Healthcare Plus', 'Pair My Trip'], methodology: 'UML 2.5 · Iterated with dev · Versioned' },
+        { name: 'BPMN & Process Flow Diagrams', level: 90, desc: 'BPMN 2.0 flows with pools, gateways, events and exception paths for ops and engineering.', artifacts: ['BPMN Flows', 'Exception Paths', 'RACI'], usedIn: ['Manufacturing ERP', 'Bureau Chief'], methodology: 'BPMN 2.0 · As-Is/To-Be · Exceptions' },
+        { name: 'Wireframing — Figma, Balsamiq, Draw.io', level: 88, desc: 'Clickable wireframes and prototypes to visualise flows before code — tested with users early.', artifacts: ['Wireframes', 'Prototypes', 'Design Handoff'], usedIn: ['Healthcare Plus', 'Pair My Trip'], methodology: 'Lo→Hi Fidelity · User Review · Design System' },
+        { name: 'Visio Diagrams', level: 85, desc: 'Professional Visio diagrams for architecture and documentation packs with consistent styling.', artifacts: ['Visio Packages', 'Stencils'], usedIn: ['Manufacturing ERP'], methodology: 'Stencil Standards · Layered Diagrams' },
+        { name: 'SOPs, User Manuals & Knowledge Base', level: 90, desc: 'SOPs, user manuals and Confluence KB articles that are findable, maintainable and loved by support.', artifacts: ['SOP', 'User Manual', 'KB Articles'], usedIn: ['All platforms'], methodology: 'Task-based Writing · Screenshots · Versioning' }
       ],
       pills: [
         'Use Case Diagrams', 'Activity Diagrams', 'Sequence Diagrams', 'Class Diagrams',
         'BPMN Flows', 'Wireframes', 'Prototypes', 'Mockups', 'Confluence Pages',
         'SOPs', 'User Manuals', 'Audit-Ready Documentation'
-      ]
+      ],
+      pillDetails: {
+        'Sequence Diagrams': 'Time-ordered interactions showing sync/async calls, alt/loop and error paths.',
+        'Wireframes': 'Fidelity-appropriate wires that de-risk UX before development.',
+        'Confluence Pages': 'Single-source pages with macros, labels and page trees for discoverability.',
+        'BPMN Flows': 'Pools, lanes, gateways and events modelled to BPMN 2.0 for execution clarity.',
+        'SOPs': 'Step-by-step SOPs with RACI, controls and version history.'
+      }
     },
     {
       id: 'tools',
       label: 'Tools',
+      intro: 'The right tool for the phase — analysis, modelling, delivery and quality, wielded with standards.',
       tools: [
-        { name: 'JIRA', level: 'Advanced' },
-        { name: 'Confluence', level: 'Advanced' },
-        { name: 'MS Excel', level: 'Expert' },
-        { name: 'SQL / MySQL', level: 'Working+' },
-        { name: 'Power BI', level: 'Proficient' },
-        { name: 'Tableau', level: 'Proficient' },
-        { name: 'Figma', level: 'Proficient' },
-        { name: 'Draw.io', level: 'Advanced' },
-        { name: 'MS Visio', level: 'Advanced' },
-        { name: 'Balsamiq', level: 'Proficient' },
-        { name: 'Postman', level: 'Working+' },
-        { name: 'MS Word', level: 'Expert' },
-        { name: 'MS PowerPoint', level: 'Expert' },
-        { name: 'HTML / CSS / JS', level: 'Basic' }
+        { name: 'JIRA', level: 'Advanced', desc: 'Boards, workflows, SLAs and dashboards for delivery transparency.', years: '3+ yrs', usedIn: ['All platforms'], artifacts: ['Scrum Board', 'Velocity Reports'] },
+        { name: 'Confluence', level: 'Advanced', desc: 'Spaces, templates and KB architecture that scales with the product.', years: '3+ yrs', usedIn: ['All platforms'], artifacts: ['Space Design', 'Templates'] },
+        { name: 'MS Excel', level: 'Expert', desc: 'Reconciliation, modelling and KPI automation that survives audit.', years: '5+ yrs', usedIn: ['Bureau Chief', 'Manufacturing ERP'], artifacts: ['Reconciliation Models', 'Pivot Reports'] },
+        { name: 'SQL / MySQL', level: 'Working+', desc: 'Extraction, validation and reconciliation across transactional stores.', years: '2+ yrs', usedIn: ['Bureau Chief', 'Pair My Trip'], artifacts: ['Queries', 'Reconciliation Scripts'] },
+        { name: 'Power BI', level: 'Proficient', desc: 'DAX, modelling and storytelling for ops and exec audiences.', years: '2 yrs', usedIn: ['Manufacturing ERP'], artifacts: ['Datasets', 'Dashboards'] },
+        { name: 'Tableau', level: 'Proficient', desc: 'LOD, parameters and stories that answer business questions fast.', years: '2 yrs', usedIn: ['Bureau Chief'], artifacts: ['Stories', 'LOD Calcs'] },
+        { name: 'Figma', level: 'Proficient', desc: 'Wireframes, prototypes and dev handoff with auto-layout and components.', years: '2 yrs', usedIn: ['Healthcare Plus', 'Pair My Trip'], artifacts: ['Prototypes', 'Design System'] },
+        { name: 'Draw.io', level: 'Advanced', desc: 'Quick, collaborative diagrams that keep the model close to the team.', years: '3 yrs', usedIn: ['All'], artifacts: ['BPMN', 'UML'] },
+        { name: 'MS Visio', level: 'Advanced', desc: 'Polished architecture and process packs for stakeholders & audit.', years: '3 yrs', usedIn: ['Manufacturing ERP'], artifacts: ['Visio Packs'] },
+        { name: 'Balsamiq', level: 'Proficient', desc: 'Lo-fi ideation that accelerates alignment before hi-fi.', years: '1+ yr', usedIn: ['Healthcare Plus'], artifacts: ['Lo-fi Wires'] },
+        { name: 'Postman', level: 'Working+', desc: 'API validation for UPI, cards, availability and notification flows.', years: '2 yrs', usedIn: ['Pair My Trip'], artifacts: ['Collections', 'Tests'] },
+        { name: 'MS Word', level: 'Expert', desc: 'Long-doc mastery: styles, cross-refs, change tracking for BRD/SRS.', years: '5+ yrs', usedIn: ['All'], artifacts: ['BRD', 'SRS Templates'] },
+        { name: 'MS PowerPoint', level: 'Expert', desc: 'Executive storytelling with clear, decision-ready decks.', years: '5+ yrs', usedIn: ['Neilsoft QBRs'], artifacts: ['QBR Decks', 'Demos'] },
+        { name: 'HTML / CSS / JS', level: 'Basic', desc: 'Prototype and review literacy to bridge with engineering.', years: '1 yr', usedIn: ['Healthcare Plus'], artifacts: ['Prototype Reviews'] }
       ]
     },
     {
       id: 'soft',
       label: 'Power Skills',
+      intro: 'The human API — clarity, facilitation and stakeholder trust that makes the hard stuff ship.',
       pillsBig: [
         'Stakeholder Communication', 'Conflict Resolution', 'Problem Solving',
         'Critical Thinking', 'Decision Making', 'Time Management',
         'Change Management', 'Cross-Functional Collaboration', 'Client Presentations',
         'Pre-Sales Support', 'Negotiation', 'Facilitation'
       ],
+      pillDetails: {
+        'Stakeholder Communication': 'Crispy updates, pre-reads and 1-pagers — tailored to exec, ops and tech audiences.',
+        'Facilitation': 'Time-boxed workshops with clear outcomes, parking lots and live synthesis.',
+        'Client Presentations': 'Narrative decks that earn a yes — problem, options, recommendation, risk.',
+        'Negotiation': 'Principled negotiation balancing scope, time and quality with data.',
+        'Cross-Functional Collaboration': 'Bridge business–engineering–QA with shared language and rituals.',
+        'Problem Solving': 'Structured decomposition, hypothesis-driven analysis and data-backed recommendations.',
+        'Change Management': 'Stakeholder map, comms plan and training to land change without churn.',
+        'Conflict Resolution': 'Active listening, reframing and option generation to turn tension into progress.'
+      },
       note: {
         icon: 'chat',
         text: '"The soft stuff is the hard stuff." Most project failures are communication failures — I treat clarity as a deliverable in its own right.'
@@ -215,10 +261,10 @@ export const skills = {
     }
   ],
   domains: [
-    { name: 'Banking', text: 'Credit risk, CIBIL analysis, loan eligibility, compliance & audit readiness.' },
-    { name: 'Finance', text: 'Payment gateways, reconciliation, KPI tracking and financial reporting.' },
-    { name: 'Healthcare', text: 'Patient journeys, scheduling workflows and administrative reporting.' },
-    { name: 'ERP Systems', text: 'Inventory, procurement, production, sales, transport & returns.' }
+    { name: 'Banking', text: 'Credit risk, CIBIL analysis, loan eligibility, compliance & audit readiness.', detail: 'Built risk segmentation, CIBIL score logic and audit-ready reporting for lending decisions. Data-mart + RTM + compliance evidence pack.', icon: 'shield', metrics: ['Risk segmentation', 'CIBIL logic', 'Audit pack'], color: '#5fc9ab' },
+    { name: 'Finance', text: 'Payment gateways, reconciliation, KPI tracking and financial reporting.', detail: 'Designed UPI & card flows, refund/error handling and reconciliation for real-time booking & finance ops.', icon: 'chart', metrics: ['UPI + Cards', 'Reconciliation', 'KPI dashboards'], color: '#d9b062' },
+    { name: 'Healthcare', text: 'Patient journeys, scheduling workflows and administrative reporting.', detail: 'End-to-end patient → appointment → consultation flows with role-based access and reporting.', icon: 'users', metrics: ['Patient flow', 'Scheduling', 'RBAC'], color: '#6aa9ff' },
+    { name: 'ERP Systems', text: 'Inventory, procurement, production, sales, transport & returns.', detail: 'Order-to-return lifecycle: PR→RFQ→PO, work orders, QC, sales, transport and real-time inventory.', icon: 'layers', metrics: ['8 modules', 'Order→Return', 'Real-time stock'], color: '#c084fc' }
   ]
 }
 
