@@ -1,4 +1,4 @@
-# Sheetal Kirjawalekar — Business Analyst Portfolio
+# Business Analyst Portfolio
 
 A premium single-page portfolio for **Sheetal Kirjawalekar**, Techno-functional Business Analyst (Pune, India).
 
