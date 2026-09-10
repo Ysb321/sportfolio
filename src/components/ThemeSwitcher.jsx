@@ -89,7 +89,7 @@ export function ThemeToggle({ theme, setTheme, auto, setAuto }) {
               <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.2"><polygon points="6 3 20 12 6 21 6 3" fill="currentColor" stroke="none"/><polygon points="6 3 20 12 6 21 6 3" fill="none" stroke="currentColor"/></svg>
             )}
           </span>
-          {auto ? 'Auto' : 'Auto'}
+          <span className="theme-auto-btn__label">{auto ? 'Auto' : 'Auto'}</span>
         </button>
       )}
     </div>

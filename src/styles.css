@@ -934,6 +934,47 @@ a.contact__row:hover { background: var(--card-hover); transform: translateX(2px)
 .to-top svg { width: 18px; height: 18px; }
 
 /* ============================================================
+   DESKTOP-ONLY REFINEMENTS (≥961px) — leaves mobile (≤960px) untouched
+   ============================================================ */
+@media (min-width: 961px) {
+  /* Fix: .hero__inner's `width: 100%` was overriding the .container
+     width (later in the cascade), pinning the whole hero to the left
+     viewport edge on PC. Restore the shared centered container width. */
+  .hero__inner {
+    width: min(var(--container), calc(100% - 32px));
+  }
+
+  /* Inside the proper container width, 4 inline stats wrap 3+1 —
+     present them as a balanced 2×2 grid instead (dividers unused). */
+  .hero__meta {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+    gap: 18px 44px;
+  }
+  .hero__meta-divider { display: none; }
+
+  /* All three CTAs fit one row (they overflowed the column by ~8px). */
+  .hero__cta .btn { padding-inline: 18px; }
+
+  /* Short laptop viewports: hero content fills past the 88svh minimum,
+     colliding with the absolutely-positioned scroll cue — pad it out. */
+  .hero { padding-bottom: 96px; }
+
+  /* Compact nav for the 961–1180px desktop band so links + theme
+     controls never overflow the container edge. */
+  .nav__link { padding: 8px 9px; font-size: 0.80rem; }
+  .nav__brand-text { font-size: 0.88rem; }
+  .nav__actions { gap: 6px; }
+  .theme-toggle { padding: 8px 10px; }
+  .theme-auto-btn { padding: 7px 8px; }
+}
+@media (min-width: 961px) and (max-width: 1060px) {
+  /* Tightest desktop slice: icon-only auto button (label kept for a11y). */
+  .theme-auto-btn__label { display: none; }
+}
+
+/* ============================================================
    RESPONSIVE - Professional breakpoints
    ============================================================ */
 @media (max-width: 1100px) {
