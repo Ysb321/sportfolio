@@ -277,6 +277,7 @@ export const experience = {
       type: 'IT Services · Banking / Finance / ERP',
       role: 'Business Analyst',
       org: 'Techno Cipher IT Solutions',
+      location: 'Pune, India',
       points: [
         'Own end-to-end requirement gathering & analysis across banking, finance, IT, ERP and Legal IT portfolios — stakeholder meetings, workshops, interviews and brainstorming sessions.',
         'Translate business needs into BRD, FRD/FSD, SRS documents, user stories, use cases, workflows and acceptance criteria for development and QA teams.',
