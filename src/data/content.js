@@ -273,7 +273,7 @@ export const experience = {
   title: ['A timeline of', 'shipped impact.'],
   items: [
     {
-      period: 'Mar 2023 — Present',
+      period: 'Mar 2023 — Jun 2026',
       type: 'IT Services · Banking / Finance / ERP',
       role: 'Business Analyst',
       org: 'Techno Cipher IT Solutions',
